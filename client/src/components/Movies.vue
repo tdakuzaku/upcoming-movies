@@ -1,10 +1,12 @@
 <template>
-  <div class="hero">
-    <div>
-        <b-card-group deck>
-          <movie-card v-for="item in list" />
-        </b-card-group>
-    </div>
+  <div>
+      <b-card-group columns>
+        <movie-card v-for="item in list" v-bind:key="item.id" :data="item"/>
+      </b-card-group>
+
+      <div>
+        <b-button v-on:click="showMore()">Show more</b-button>
+      </div>
   </div>
 </template>
 
@@ -21,7 +23,8 @@ export default {
   },
   data () {
     return {
-      list: []
+      list: [],
+      currentPage: 1
     }
   },
   created () {
@@ -29,8 +32,12 @@ export default {
   },
   methods: {
     async fetch () {
-      const { data } = await MoviesRepository.list()
-      this.list = data
+      const { data } = await MoviesRepository.list(this.currentPage)
+      this.list = this.list.concat(data.results)
+    },
+    async showMore () {
+      this.currentPage++
+      this.fetch()
     }
   }
 }

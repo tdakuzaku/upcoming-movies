@@ -3,8 +3,8 @@ import repository from './repository'
 const API_URL = 'http://localhost:8080'
 
 export default {
-  list () {
-    return repository.get(API_URL + '/upcoming/')
+  list (page) {
+    return repository.get(API_URL + '/upcoming/', { params: { page: page } })
   },
   get (movieId) {
     return repository.get(API_URL + '/movie/' + movieId)
