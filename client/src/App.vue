@@ -1,6 +1,5 @@
 <template>
   <div id="app">
-    <navbar></navbar>
     <main>
       <router-view></router-view>
     </main>
@@ -8,13 +7,8 @@
 </template>
 
 <script>
-import Navbar from '@/components/Navbar'
-
 export default {
-  name: 'UpcomingMoviesHome',
-  components: {
-    Navbar
-  }
+  name: 'UpcomingMoviesHome'
 }
 </script>
 

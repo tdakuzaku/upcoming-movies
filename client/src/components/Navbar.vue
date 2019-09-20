@@ -9,10 +9,22 @@
       <!-- Right aligned nav items -->
       <b-navbar-nav class="ml-auto">
         <b-nav-form>
-          <b-form-input size="sm" class="mr-sm-2" placeholder="Search by movie name"></b-form-input>
+          <b-form-input v-on:keyup.enter="search" :value="this.searchText" size="sm" class="mr-sm-2" placeholder="Search by movie name"></b-form-input>
         </b-nav-form>
       </b-navbar-nav>
     </b-collapse>
   </b-navbar>
 </div>
 </template>
+
+<script>
+export default {
+  name: 'MoviesSearch',
+  props: ['searchText'],
+  methods: {
+    search: function () {
+      return ''
+    }
+  }
+}
+</script>

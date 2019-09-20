@@ -10,6 +10,6 @@ export default {
     return repository.get(API_URL + '/movie/' + movieId)
   },
   search (text) {
-    return repository.get(API_URL + '/search' + text)
+    return repository.get(API_URL + '/search', { params: { query: text } })
   }
 }
