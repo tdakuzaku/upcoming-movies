@@ -14,7 +14,9 @@
   "dependencies": {
     "express": "^4.17.1",
     "consign": "^0.1.6",
-    "request": "^2.88.0"
+    "request": "^2.88.0",
+    "vue": "^2.6.10"
+
   },
   "devDependencies": {
     "expect.js": "^0.3.1",
