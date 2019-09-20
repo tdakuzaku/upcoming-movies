@@ -5,15 +5,21 @@
   "main": "app.js",
   "scripts": {
     "start": "node ./app.js",
-    "dev": "nodemon -L",
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "dev": "nodemon -L ./app.js",
+    "test": "mocha",
+    "coverage": "nyc npm run test"
   },
   "author": "Tiago Dakuzaku <tdakuzaku@gmail.com>",
-  "license": "ISC",
+  "license": "MIT",
   "dependencies": {
     "express": "^4.17.1"
   },
   "devDependencies": {
-    "nodemon": "^1.19.2"
+    "chai": "^4.2.0",
+    "chai-http": "^4.3.0",
+    "mocha": "^6.2.0",
+    "nodemon": "^1.19.2",
+    "nyc": "^14.1.1",
+    "supertest": "^4.0.2"
   }
 }

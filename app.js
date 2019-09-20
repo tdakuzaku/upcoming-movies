@@ -10,6 +10,6 @@ router.get("/",function(req,res){
 
 app.use("/", router);
 
-app.listen(PORT, function () {
+module.exports = app.listen(PORT, function () {
   console.log('=== Upcoming Movies Server is up! ===');
-})
+});
