@@ -5,6 +5,7 @@ var expect = require("expect.js");
 
 const UPCOMING_URL = "/upcoming";
 const MOVIE_URL = "/movie";
+const SEARCH_MOVIE_URL = "/search";
 
 describe("API Authentication", function() {
   it("given valid key then should return status 200", function(done) {
@@ -54,5 +55,18 @@ describe("GET: movie details by ID", function() {
         expect(res.body.title).to.not.null;
         return done();
       });
+  });
+
+  describe("GET: search movies by query", function() {
+    it("should return movies from a given text query", function(done) {
+      request(app)
+        .get(SEARCH_MOVIE_URL)
+        .query({ query: "Hust" })
+        .end(function(err, res) {
+          expect(res.status).to.be(200);
+          expect(res.body.results).to.not.null;
+          return done();
+        });
+    });
   });
 });

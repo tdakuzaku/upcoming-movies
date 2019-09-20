@@ -28,4 +28,18 @@ module.exports = app => {
       response.json(JSON.parse(body));
     });
   });
+
+  app.get("/search", function(req, response) {
+    var options = {
+      url: config.api_url + config.search_movie_url,
+      qs: {
+        api_key: config.api_key,
+        query: req.query.query
+      }
+    };
+    request(options, function(err, res, body) {
+      response.statusCode = res.statusCode;
+      response.json(JSON.parse(body));
+    });
+  });
 };
