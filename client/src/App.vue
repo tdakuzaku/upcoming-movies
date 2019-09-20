@@ -1,8 +1,6 @@
 <template>
   <div id="app">
-    <header>
-      <span>Vue.js PWA</span>
-    </header>
+    <navbar></navbar>
     <main>
       <router-view></router-view>
     </main>
@@ -10,8 +8,13 @@
 </template>
 
 <script>
+import Navbar from '@/components/Navbar'
+
 export default {
-  name: 'app'
+  name: 'UpcomingMoviesClient',
+  components: {
+    Navbar
+  }
 }
 </script>
 
