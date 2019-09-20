@@ -4,6 +4,7 @@ const app = require("../app.js");
 var expect = require("expect.js");
 
 const UPCOMING_URL = "/upcoming";
+const MOVIE_URL = "/movie";
 
 describe("API Authentication", function() {
   it("given valid key then should return status 200", function(done) {
@@ -21,7 +22,7 @@ describe("GET: first 20 Upcoming Movies", function() {
       .end(function(err, res) {
         expect(err).to.be.null;
         expect(res.body.results).to.have.length(20);
-        done();
+        return done();
       });
   });
 });
@@ -37,8 +38,21 @@ describe("GET: with pagination", function() {
           .query({ page: 2 })
           .end(function(err2, res2) {
             expect(res1.body.results[0].id).to.not.be(res2.body.results[0].id);
-            done();
+            return done();
           });
+      });
+  });
+});
+
+describe("GET: movie details by ID", function() {
+  it("should return movies details from a given ID", function(done) {
+    request(app)
+      .get(MOVIE_URL)
+      .query({ id: 540901 })
+      .end(function(err, res) {
+        expect(res.status).to.be(200);
+        expect(res.body.title).to.not.null;
+        return done();
       });
   });
 });
