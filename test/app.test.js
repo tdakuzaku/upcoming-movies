@@ -4,7 +4,7 @@ const app = require("../app.js");
 describe("GET/", function() {
   it("should return the Hello World message", function(done) {
     request(app)
-      .get("/")
+      .get("/upcoming-movies")
       .expect(
         200,
         {

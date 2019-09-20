@@ -1,15 +1,14 @@
 var express = require("express");
-var app = express();
-var router = express.Router();
+var consign = require("consign");
 
 const PORT = process.env.SERVER_PORT;
 
-router.get("/",function(req,res){
-  res.send({body: "Hello world"});
-});
+var app = express();
 
-app.use("/", router);
+consign()
+  .include("services")
+  .into(app);
 
-module.exports = app.listen(PORT, function () {
-  console.log('=== Upcoming Movies Server is up! ===');
+module.exports = app.listen(PORT, () => {
+  console.log("=== Upcoming Movies Server is up! ===");
 });
