@@ -23,8 +23,8 @@ module.exports = app => {
     });
   });
 
-  app.get("/api/movies/:id", function(req, response) {
-    var url = config.movie_url + "/" + req.param.id;
+  app.get("/api/movies/", function(req, response) {
+    var url = config.movie_url + "/" + req.query.id;
     var options = getRequestOptions(url, {});
     request(options, function(err, res, body) {
       response.statusCode = res.statusCode;
@@ -32,7 +32,7 @@ module.exports = app => {
     });
   });
 
-  app.get("/api/movies/search", function(req, response) {
+  app.get("/api/movies/search/", function(req, response) {
     var options = getRequestOptions(config.search_movie_url, {
       query: req.query.query
     });

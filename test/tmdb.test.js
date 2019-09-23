@@ -3,9 +3,9 @@ const app = require("../app.js");
 
 var expect = require("expect.js");
 
-const UPCOMING_URL = "/upcoming";
-const MOVIE_URL = "/movie";
-const SEARCH_MOVIE_URL = "/search";
+const UPCOMING_URL = "/api/movies/upcoming";
+const MOVIE_URL = "/api/movies/";
+const SEARCH_MOVIE_URL = "/api/movies/search";
 
 describe("API Authentication", function() {
   it("given valid key then should return status 200", function(done) {
