@@ -1,8 +1,5 @@
 <template>
   <div id="app">
-    <header>
-      <span>Vue.js PWA</span>
-    </header>
     <main>
       <router-view></router-view>
     </main>
@@ -11,7 +8,7 @@
 
 <script>
 export default {
-  name: 'app'
+  name: 'UpcomingMoviesHome'
 }
 </script>
 
@@ -29,7 +26,6 @@ body {
 
 main {
   text-align: center;
-  margin-top: 40px;
 }
 
 header {

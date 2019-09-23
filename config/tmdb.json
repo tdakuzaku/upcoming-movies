@@ -1,3 +1,7 @@
 {
-  "api_key": "1f54bd990f1cdfb230adb312546d765d"
+  "api_url": "https://api.themoviedb.org/3",
+  "api_key": "1f54bd990f1cdfb230adb312546d765d",
+  "upcoming_url": "/movie/upcoming",
+  "movie_url": "/movie",
+  "search_movie_url": "/search/movie"
 }
