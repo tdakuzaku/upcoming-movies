@@ -7,8 +7,7 @@
     "start": "node ./app.js",
     "dev": "nodemon -L ./app.js",
     "test": "mocha",
-    "coverage": "nyc npm run test",
-    "build": "cd client && npm install && npm run build"
+    "coverage": "nyc npm run test"
   },
   "author": "Tiago Dakuzaku <tdakuzaku@gmail.com>",
   "license": "MIT",
