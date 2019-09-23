@@ -51,7 +51,7 @@ export default {
     position: absolute;
     top: 0;
     height: 100%;
-    padding: 1.25rem 0;
+    padding: 1.25rem 0!important;
   }
   .movie-card-details label {
     font-weight: 600;
