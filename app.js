@@ -1,7 +1,7 @@
 var express = require("express");
 var consign = require("consign");
 
-const PORT = (process.env.SERVER_PORT) ? process.env.SERVER_PORT : 3000;
+const PORT = process.env.SERVER_PORT || process.env.PORT || 3000;
 const cors = require('cors')
 
 var app = express();
