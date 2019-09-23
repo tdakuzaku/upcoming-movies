@@ -15,12 +15,14 @@
       </b-collapse>
     </b-navbar>
 
-    <b-card-group columns>
-      <movie-card v-for="item in list" v-bind:key="item.id" :data="item"/>
-    </b-card-group>
-
-    <div>
-      <b-button v-on:click="showMore()">Show more</b-button>
+    <b-spinner v-if="loading" label="Loading..." class="loading-spinner"></b-spinner>
+    <div v-else>
+      <b-card-group columns>
+        <movie-card v-for="item in list" v-bind:key="item.id" :data="item"/>
+      </b-card-group>
+      <div>
+        <b-button v-on:click="showMore()">Show more</b-button>
+      </div>
     </div>
   </div>
 </template>
@@ -38,6 +40,7 @@ export default {
   },
   data () {
     return {
+      loading: true,
       list: [],
       searchText: '',
       currentPage: 1
@@ -50,15 +53,24 @@ export default {
     async fetch () {
       const { data } = await MoviesRepository.list(this.currentPage)
       this.list = this.list.concat(data.results)
+      this.loading = false
     },
     async showMore () {
       this.currentPage++
+      this.loading = true
       this.fetch()
     },
     async search () {
+      this.loading = true
       const { data } = await MoviesRepository.search(this.searchText)
+      this.loading = false
       this.list = data.results
     }
   }
 }
 </script>
+<style scoped>
+  .loading-spinner {
+    margin: 50px 0;
+  }
+</style>
