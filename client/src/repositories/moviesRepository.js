@@ -1,6 +1,6 @@
 import repository from './repository'
 
-const API_URL = 'http://localhost/api/movies'
+const API_URL = 'api/movies'
 
 export default {
   list (page) {
